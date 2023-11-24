@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="col-6">
+    <table class="table table-striped">
+      <caption id="cursos-certificate">{{getCursosCertificate()}}</caption>
+      <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Plataforma</th>
+            <th scope="col">Lanzamiento</th>
+            <th scope="col">Duracion(h)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of cursos">
+            <td>
+              <dd>{{c.id}}</dd>
+            </td>
+            <td>
+              <a href="#"  (click)="showCourseInfo(c)" >{{c.title}}</a>
+            </td>
+            <td>
+              <dd>{{c.platform}}</dd>
+            </td>
+            <td>
+              <dd>{{c.launch_year}}</dd>
+            </td>
+            <td>
+              <dd>{{c.duration_hours}}</dd>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+  </div>
+ 
+
+<div class="card" style="width: 18rem;" *ngIf="isCardVisible">
+  <img [src]="selectedCourse.image" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{selectedCourse.title}}</h5>
+    <p class="card-text">{{selectedCourse.description}}</p>
+    <p> El curso ofrece certificado: {{selectedCourse.offers_certificate}}</p>
+  </div>
+</div>
